@@ -8,7 +8,11 @@ class CleanUpFile:
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self,
+                 exc_type,
+                 exc_val,
+                 exc_tb
+                 ) -> bool:
         try:
             os.path.exists(self.filename) and os.remove(self.filename)
         except Exception as e:
